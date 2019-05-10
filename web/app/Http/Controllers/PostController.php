@@ -8,17 +8,25 @@ class PostController extends Controller
 {
     public function index()
     {
-    	$posts = [
-    	['id' => '1', 'title' => 'Post 1', 'body' => 'body post in ID 1'],
-    	['id' => '2', 'title' => 'Post 2', 'body' => 'body post in ID 2'],
-    	['id' => '3', 'title' => 'Post 3', 'body' => 'body post in ID 3'],
-    	['id' => '4', 'title' => 'Post 4', 'body' => 'body post in ID 4'],
-    	];
-
-    	echo '<ul>';
-        foreach ($posts as $post ) {
-            echo '<li><a href="'.route('post.detail',$post['id']).'">'.$post['title'].'</a></li>';
-        }
-        echo '</ul>';
+    	$post = 'produk yang ada';
+        return view('post/index', compact('post'));
     }
+
+    public function look()
+    {
+    	$post =['website','applikasi','provider','internet'];
+    	return view ('/post/look', compact('post'));
+    }
+
+        public function show()
+    {
+        $post =['website','applikasi','provider','internet'];
+        return view ('post/show', compact('post'));
+    }
+public function content()
+{
+		$title = 'Harry Pooter'; 
+		$content = 'harry potter and the deathly hallows: part 2';
+		return view('content.halaman',compact('title','content')); 
+	}
 }
